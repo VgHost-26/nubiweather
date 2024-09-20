@@ -81,37 +81,37 @@ function App() {
         </a>
         <h1>NubiWeather</h1>
       </div>
-        <div className="content">
-          {weatherData ? (
-            <CurrentWeather
-              data={weatherData}
-              unit={unit}
-              refresh={fetchWeather}
-            />
-          ) : (
-            <>{/*fetchWeather()*/}</>
-          )}
+      <div className="content">
+        {weatherData ? <div className="title"><span>{weatherData.location.name}</span>, {weatherData.location.country}</div> : <></>}
+        {weatherData ? (
+          <CurrentWeather
+            data={weatherData}
+            unit={unit}
+            refresh={fetchWeather}
+          />
+        ) : (
+          <>{/*fetchWeather()*/}</>
+        )}
 
-          {weatherData ? (
-            <HourWeather
-              data={weatherData}
-              unit={unit}
-              refresh={fetchWeather}
-            />
-          ) : (
-            <>{/*fetchWeather()*/}</>
-          )}
+        {weatherData ? (
+          <HourWeather
+            data={weatherData.forecast.forecastday[0].hour}
+            unit={unit}
+            refresh={fetchWeather}
+          />
+        ) : (
+          <>{/*fetchWeather()*/}</>
+        )}
 
-          {weatherData ? (
-            <ForecastWeather
-              days={weatherData.forecast.forecastday}
-              unit={unit}
-            />
-          ) : (
-            <>{/*fetchWeather()*/}</>
-          )}
-        </div>
-        
+        {weatherData ? (
+          <ForecastWeather
+            days={weatherData.forecast.forecastday}
+            unit={unit}
+          />
+        ) : (
+          <>{/*fetchWeather()*/}</>
+        )}
+      </div>
     </>
   )
 }

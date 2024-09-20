@@ -8,7 +8,7 @@ function Menu({
   choosenCity,
 }) {
   return (
-    <div id="menu" isHidden={`${isMenuHidden}`}>
+    <div id="menu" is-hidden={`${isMenuHidden}`}>
       <div className="menu-distancer">
           <h2 className="menu-secion-title">Locations</h2>
           <hr/>
