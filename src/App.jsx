@@ -14,12 +14,14 @@ const myCities = ["Gliwice", "Hamburg"]
 function App() {
   const [city, setCity] = useState(myCities[0])
   const [weatherData, setWeatherData] = useState("")
-  const [weatherDataF, setWeatherDataF] = useState("")
   const [unit, setUnit] = useState("c")
 
-  const fetchCurrentWeather = () => {
+
+  const fetchWeather = () => {
     axios
-      .get(`${apiUrl}/current.json?key=${apiKey}&q=${city}&aqi=no`)
+      .get(
+        `${apiUrl}/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no&lang=pl`
+      )
       .then(response => {
         console.log(response)
         if (response.status === 200) {
@@ -32,29 +34,10 @@ function App() {
         console.error(error)
       })
   }
-  const fetchForecastWeather = () => {
-    axios
-      .get(
-        `${apiUrl}/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no`
-      )
-      .then(response => {
-        console.log(response)
-        if (response.status === 200) {
-          setWeatherDataF(response.data)
-        } else {
-          console.error(response)
-        }
-      })
-      .catch(error => {
-        console.error(error)
-      })
-  }
 
   useEffect(() => {
-    fetchCurrentWeather()
-    fetchForecastWeather()
+    fetchWeather()
     console.log(weatherData)
-    console.log(weatherDataF)
   }, [])
 
   return (
@@ -72,18 +55,18 @@ function App() {
           <CurrentWeather
             data={weatherData}
             unit={unit}
-            refresh={fetchCurrentWeather}
+            refresh={fetchWeather}
           />
         ) : (
-          <></>
+          <>{fetchWeather()}</>
         )}
-        {weatherDataF ? (
+        {weatherData ? (
           <ForecastWeather
-            days={weatherDataF.forecast.forecastday}
+            days={weatherData.forecast.forecastday}
             unit={unit}
           />
         ) : (
-          <></>
+          <>{fetchWeather()}</>
         )}
       </div>
     </>

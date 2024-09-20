@@ -8,9 +8,10 @@ function ForecastWeather({ days = [], unit = "c" }) {
         return (
           <ForecastDay
             date={day.date}
-            temp={unit ? day.day.maxtemp_c + "°C" : day.day.maxtemp_f + "°F"}
+            temp={unit ? Math.round(day.day.maxtemp_c) + "°C" : Math.round(day.day.maxtemp_f) + "°F"}
             icon={day.day.condition.icon}
             alt={day.day.condition.text}
+            key={day.date}
           />
         )
       })}
