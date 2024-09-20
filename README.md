@@ -1,8 +1,14 @@
-# React + Vite
+# NubiWeather
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- Current weather for choosen city
+- Weather forecast for next week
+- Weather forecast for upcoming hours (currently only on desktop)
+- Dynamic Day/Nigh theme
 
-Currently, two official plugins are available:
+## How to run it
+- Simply open it on Github Pages: `https://vghost-26.github.io/nubiweather/`
+- Or if you want to run it locally download the code and run it with ```npm run dev```
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Issues
+- `Refresh` button doesnt work but it is because of how Weather API works and it only refreshes date every 15min
