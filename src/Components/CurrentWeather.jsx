@@ -19,16 +19,17 @@ function CurrentWeather({ data = "", unit = "c", refresh }) {
           ? Math.round(data.current.temp_c) + "°C"
           : Math.round(data.current.temp_f) + "°F"}
       </span>
-      <span className="city">{data.location.name}</span>
-      <span className="update-time">
-        {data.current.last_updated.split(" ")[1]}
-        <input
-          onClick={refresh}
-          type="button"
-          className="material-symbols-outlined thin"
-          value={"sync"}
-        />
-      </span>
+        <span className="city">{data.location.name}</span>
+        <span className="update-time">
+          {data.current.last_updated.split(" ")[1]}
+          <input
+            onClick={refresh}
+            type="button"
+            className="material-symbols-outlined thin"
+            translate="no"
+            value={"sync"}
+          />
+        </span>
     </div>
   )
 }
