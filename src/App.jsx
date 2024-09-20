@@ -4,7 +4,7 @@ import axios from "axios"
 import CurrentWeather from "./Components/CurrentWeather"
 import ForecastWeather from "./Components/ForecastWeather"
 
-const apiUrl = "http://api.weatherapi.com/v1"
+const apiUrl = "https://api.weatherapi.com/v1"
 const apiKey = "cad095b8ab0c448b8de112929241909"
 const FORECAST = "forecast"
 const CURRENT = "current"
@@ -58,7 +58,7 @@ function App() {
             refresh={fetchWeather}
           />
         ) : (
-          <>{fetchWeather()}</>
+          <>{/*fetchWeather()*/}</>
         )}
         {weatherData ? (
           <ForecastWeather
@@ -66,7 +66,7 @@ function App() {
             unit={unit}
           />
         ) : (
-          <>{fetchWeather()}</>
+          <>{/*fetchWeather()*/}</>
         )}
       </div>
     </>
