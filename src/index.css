@@ -147,6 +147,13 @@ h1 {
     font-size: 2.5rem;
 
   }
+  input{
+    transition: .2s;
+  }
+  input:hover{
+    translate: 1rem;
+  }
+  
 
   li.choosen {
     font-weight: bold;
@@ -173,7 +180,7 @@ h1 {
     font-size: 5em;
     filter: opacity(.5);
   }
-
+  
 
   @media screen and (min-width: 800px) {
     min-width: 400px;
@@ -208,10 +215,14 @@ h1 {
 
 .menu-button {
   font-size: 40px;
-
+  transition: transform .2s;
   @media screen and (min-width: 800px) {
     z-index: 100;
   }
+}
+.menu-button:hover{
+  transform: scaleX(1.5) scaleY(.9);
+
 }
 
 

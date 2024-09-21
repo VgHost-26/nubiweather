@@ -48,7 +48,7 @@ function HourWeather({ data = "", loading = false }) {
     <div id="HourWeather" className="glass-tile">
       {!loading ? (
         <>
-          <ResponsiveContainer minHeight={200} height="100%">
+          <ResponsiveContainer minWidth={300} minHeight={200} height="100%">
             <AreaChart width={600} height={200} data={data} margin={0}>
               <Area
                 type={"monotone"}
