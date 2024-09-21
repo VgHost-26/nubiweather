@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react"
 import nubisoftLogo from "./assets/nubisoft.svg"
 import axios from "axios"
-import CurrentWeather from "./Components/CurrentWeather"
-import ForecastWeather from "./Components/ForecastWeather"
-import HourWeather from "./Components/HourWeather"
 import Menu from "./Components/Menu"
 import Content from "./Components/Content"
 
 const apiUrl = "https://api.weatherapi.com/v1"
 const apiKey = "cad095b8ab0c448b8de112929241909"
-const FORECAST = "forecast"
-const CURRENT = "current"
 
 const myCities = ["Gliwice", "Hamburg"]
 
@@ -19,7 +14,6 @@ function App() {
   const [weatherData, setWeatherData] = useState("")
   const [unit, setUnit] = useState("c")
   const [isMenuHidden, setMenuIsHidden] = useState(true)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const fetchWeather = () => {
     axios
@@ -39,11 +33,7 @@ function App() {
       })
   }
 
-  const handleWindowSizeChange = () => {
-    setWindowWidth(window.innerWidth)
-    console.log()
-  }
-
+ 
   const showHideMenu = () => {
     setMenuIsHidden(!isMenuHidden)
   }
@@ -54,12 +44,6 @@ function App() {
 
   useEffect(() => {
     fetchWeather()
-
-    // console.log(weatherData)
-    window.addEventListener("resize", handleWindowSizeChange)
-    return () => {
-      window.removeEventListener("resize", handleWindowSizeChange)
-    }
   }, [city])
 
   useEffect(() => {

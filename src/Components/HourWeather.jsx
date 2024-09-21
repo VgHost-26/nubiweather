@@ -9,13 +9,6 @@ import {
   XAxis,
 } from "recharts"
 
-// const data = [
-//   { name: "day1", temp_c: "10", humidity: "0" },
-//   { name: "day2", temp_c: "40", humidity: "10" },
-//   { name: "day3", temp_c: "30", humidity: "20" },
-//   { name: "day4", temp_c: "20", humidity: "0" },
-// ]
-
 function HourWeather({ data = "", loading = false }) {
   let images = []
   if (data) {
