@@ -1,9 +1,9 @@
-# NubiWeather
+# NubiWeather React JS
 
 ## Features
 - Current weather for choosen city
 - Weather forecast for next week
-- Weather forecast for upcoming hours (currently only on desktop)
+- Weather forecast for upcoming hours
 - Dynamic Day/Nigh theme
 
 ## How to run it
@@ -11,4 +11,4 @@
 - Or if you want to run it locally download the code and run it with ```npm run dev```
 
 ## Issues
-- `Refresh` button doesnt work but it is because of how Weather API works and it only refreshes date every 15min
+- `Refresh` button doesnt work but it is because of how Weather API works and it only refreshes data every 15min
