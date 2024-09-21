@@ -29,7 +29,7 @@ function HourWeather({ data = "", loading = false }) {
 
     return (
       <g transform={`translate(${x - 30},${y})`}>
-        <image x={0} y={0} dy={16} href={images[payload.index]} />
+        <image x={0} y={10} dy={16} href={images[payload.index]} />
         <text
           fill="white"
           x={0}

@@ -5,7 +5,6 @@
 :root {
   --bg-color: linear-gradient(135deg, #009e5b, #0080a3);
   --tile-color: rgba(178, 206, 211, 0.5);
-  --tile-border: solid 2px rgb(174, 203, 207);
   --tile-b-radius: 10px;
   --gap: 1em;
   --big-padding: 1.5rem;
@@ -33,22 +32,20 @@
 
 body {
   margin: 0;
+  padding-bottom: var(--big-padding);
   min-width: 320px;
   min-height: 100vh;
   background-image: var(--bg-color);
-  transition: background-image .3s;
 }
 
 body[data-theme="light"] {
   --tile-color: rgba(178, 206, 211, 0.5);
-  --tile-border: solid 2px rgb(174, 203, 207);
   --bg-color: linear-gradient(135deg, #009e5b, #0080a3);
 
 }
 
 body[data-theme="night"] {
   --tile-color: rgba(84, 96, 99, 0.5);
-  --tile-border: solid 2px rgb(126, 147, 151);
   --bg-color: linear-gradient(135deg, #004153, #a0aeb2);
 }
 
@@ -244,7 +241,7 @@ h1 {
   >* {
     text-align: center;
   }
-
+  
   .city {
     font-weight: 600;
   }
@@ -280,18 +277,13 @@ h1 {
   padding: var(--big-padding) 0 0 0;
 
   min-height: 200px;
-  /* height: 20dvw; */
 
   overflow: hidden;
   max-width: 90dvw;
 
   @media screen and (min-width: 800px) {
     flex: 0 0 calc(60dvw);
-
-
   }
-
-
 }
 
 #ForecastWeather {
