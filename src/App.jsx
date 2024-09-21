@@ -17,7 +17,6 @@ const myCities = ["Gliwice", "Hamburg"]
 function App() {
   const [city, setCity] = useState(myCities[0])
   const [weatherData, setWeatherData] = useState("")
-  const [multipleWeatherData, setMultipleWeatherData] = useState([])
   const [unit, setUnit] = useState("c")
   const [isMenuHidden, setMenuIsHidden] = useState(true)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
@@ -39,47 +38,7 @@ function App() {
         console.error(error)
       })
   }
-  const fetchMultipleWeather = async () => {
-    // setMultipleWeatherData([])
 
-    try {
-      const promices = myCities.map(city =>
-        axios.get(
-          `${apiUrl}/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no`
-        )
-      )
-
-      const results = await Promise.all(promices)
-      // console.log(results);
-      setMultipleWeatherData(results)
-
-
-      // results.forEach(response => {
-      //   console.log("multiple", response.data)
-      //   setMultipleWeatherData([...multipleWeatherData, response.data])
-      // })
-    } catch (error) {
-      console.error(error)
-    }
-
-    // for (const ct of myCities) {
-    //   axios
-    //     .get(
-    //       `${apiUrl}/forecast.json?key=${apiKey}&q=${ct}&days=7&aqi=no&alerts=no`
-    //     )
-    //     .then(response => {
-    //       console.log("multi", response)
-    //       if (response.status === 200) {
-    //         setMultipleWeatherData([...multipleWeatherData, response.data])
-    //       } else {
-    //         console.error(response)
-    //       }
-    //     })
-    //     .catch(error => {
-    //       console.error(error)
-    //     })
-    // }
-  }
   const handleWindowSizeChange = () => {
     setWindowWidth(window.innerWidth)
     console.log()
@@ -94,11 +53,8 @@ function App() {
   }
 
   useEffect(() => {
-    if (windowWidth > 800) {
-      fetchMultipleWeather()
-    } else {
-      fetchWeather()
-    }
+    fetchWeather()
+
     // console.log(weatherData)
     window.addEventListener("resize", handleWindowSizeChange)
     return () => {
@@ -139,33 +95,11 @@ function App() {
         <h1>NubiWeather</h1>
       </div>
 
-      {windowWidth > 800 ? (
-        <>
-          {myCities.map((ct, i) => {
-            return (
-              <>
-                <div key={i} className="weather-list">
-                  <Content
-                    weatherData={
-                      multipleWeatherData ? (multipleWeatherData[i].data) : null
-                    }
-                    unit={unit}
-                    fetchWeather={fetchMultipleWeather}
-                  />
-                </div>
-              </>
-            )
-          })}
-        </>
-      ) : (
-        <>
-          <Content
-            weatherData={weatherData}
-            unit={unit}
-            fetchWeather={fetchWeather}
-          />
-        </>
-      )}
+      <Content
+        weatherData={weatherData}
+        unit={unit}
+        fetchWeather={fetchWeather}
+      />
     </>
   )
 }
