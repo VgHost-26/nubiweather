@@ -6,8 +6,9 @@
   --bg-color: linear-gradient(135deg, #009e5b, #0080a3);
   --tile-color: rgba(178, 206, 211, 0.5);
   --tile-border: solid 2px rgb(174, 203, 207);
-  --tile-bradius: 10px;
+  --tile-b-radius: 10px;
   --gap: 1em;
+  --big-padding: 1.5rem;
 
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -25,7 +26,7 @@
 
   @media screen and (max-width: 600px) {
 
-    --tile-bradius: 20px;
+    --tile-b-radius: 20px;
   }
 
 }
@@ -35,6 +36,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-image: var(--bg-color);
+  transition: background-image .3s;
 }
 
 body[data-theme="light"] {
@@ -47,7 +49,7 @@ body[data-theme="light"] {
 body[data-theme="night"] {
   --tile-color: rgba(84, 96, 99, 0.5);
   --tile-border: solid 2px rgb(126, 147, 151);
-  --bg-color: linear-gradient(135deg, #03985a, #005066);
+  --bg-color: linear-gradient(135deg, #004153, #a0aeb2);
 }
 
 input[type="button"] {
@@ -72,7 +74,7 @@ h1 {
 
 #header {
   display: grid;
-  padding: 1.5rem;
+  padding: var(--big-padding);
 
   font-size: clamp(.6em, 3dvw, 25px);
 
@@ -81,8 +83,10 @@ h1 {
   align-items: center;
   justify-content: center;
 
-  
-  :not(input){opacity: .7;}
+
+  :not(input) {
+    opacity: .7;
+  }
 
 }
 
@@ -168,7 +172,7 @@ h1 {
   .close-button {
     position: fixed;
     width: 100dvw;
-    bottom: 1.5rem;
+    bottom: var(--big-padding);
     font-size: 5em;
     filter: opacity(.5);
   }
@@ -187,7 +191,7 @@ h1 {
     }
 
     .menu-distancer {
-      margin-left: calc(2 * 1.5rem + 50px);
+      margin-left: calc(2 * var(--big-padding) + 50px);
     }
 
     .close-button {
@@ -211,33 +215,27 @@ h1 {
   @media screen and (min-width: 800px) {
     z-index: 100;
   }
-
-  /* color: #0291de; */
 }
 
 
 
-
 .glass-tile {
-  background-color: var(--tile-color);
-  border-radius: var(--tile-bradius);
-  /* border: var(--tile-border); */
-  padding: 1.5rem;
-
-  min-width: min-content;
-  min-height: min-content;
-  /* max-width: 600px; */
-  width: clamp(300px, 90dvw, 450px);
-
-
-
-
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
 
+  min-width: min-content;
+  min-height: min-content;
+  width: clamp(300px, 90dvw, 450px);
+
+  background-color: var(--tile-color);
+  border-radius: var(--tile-b-radius);
+  padding: var(--big-padding);
+
+
   backdrop-filter: blur(20px);
+
 }
 
 #CurrentWeather {
@@ -279,12 +277,13 @@ h1 {
 }
 
 #HourWeather {
-  padding: 1.5rem 0 0 0;
+  padding: var(--big-padding) 0 0 0;
 
   min-height: 200px;
   /* height: 20dvw; */
 
   overflow: hidden;
+  max-width: 90dvw;
 
   @media screen and (min-width: 800px) {
     flex: 0 0 calc(60dvw);
@@ -292,10 +291,7 @@ h1 {
 
   }
 
-  @media screen and (max-width: 800px) {
-    display: none;
-    /* TEMPORARY */
-  }
+
 }
 
 #ForecastWeather {
@@ -305,6 +301,8 @@ h1 {
     flex-direction: row;
     gap: 3em;
   }
+
+  color: g;
 }
 
 .forecast-day {
