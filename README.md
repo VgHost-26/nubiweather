@@ -7,7 +7,7 @@
 - Dynamic Day/Nigh theme
 
 ## How to run it
-- Simply open it on Github Pages: `https://vghost-26.github.io/nubiweather/`
+- Simply open it on Github Pages: https://vghost-26.github.io/nubiweather
 - Or if you want to run it locally download the code and run it with ```npm run dev```
 
 ## Issues
