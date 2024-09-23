@@ -282,6 +282,7 @@ h1 {
 .update-time {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 #HourWeather {
