@@ -3,7 +3,7 @@
 ## Features
 - Current weather for choosen city
 - Weather forecast for next week
-- Weather forecast for upcoming hours
+- Temp and rain forecast for upcoming hours
 - Dynamic Day/Nigh theme
 
 ## How to run it
