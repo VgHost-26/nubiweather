@@ -1,32 +1,13 @@
-import React from 'react'
+import React from "react"
+import { dayNames } from "../dayMonthNames"
 
-const dayNames = [
-    'Sunday',
-    'Monday',
-    'Tuesday',
-    'Wednesday',
-    'Thursday',
-    'Friday',
-    'Saturday',
-]
-const dayNamesShort = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat',
-]
-
-function ForecastDay({date='', temp='', icon='', alt=''}) {
-
-    const jsDate = new Date(date)
+function ForecastDay({ date = "", temp = "", icon = "", alt = "" }) {
+  const dateObj = new Date(date)
   return (
-    <div className='forecast-day'>
-        <span>{dayNames[jsDate.getDay()]}</span>
-        <img src={icon} alt={alt}/>
-        <span className='temp'>{temp}</span>
+    <div className="forecast-day">
+      <span>{dayNames[dateObj.getDay()]}</span>
+      <img src={icon} alt={alt} />
+      <span className="temp">{temp}</span>
     </div>
   )
 }

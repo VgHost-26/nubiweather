@@ -97,14 +97,11 @@ h1 {
 
   @media screen and (min-width: 800px) {
     display: initial;
-    font-size: 5rem;
-    font-weight: 10;
+    font-size: clamp(3rem, 7dvw, 5rem);
     flex: 1 0 100%;
     padding-left: 5dvw;
 
-    :first-child {
-      font-weight: 700;
-    }
+   
   }
 }
 

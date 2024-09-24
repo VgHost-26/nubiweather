@@ -21,7 +21,7 @@ function App() {
         `${apiUrl}/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no`
       )
       .then(response => {
-        console.log(response)
+        // console.log(response)
         if (response.status === 200) {
           setWeatherData(response.data)
         } else {
